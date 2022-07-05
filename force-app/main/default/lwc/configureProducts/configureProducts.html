@@ -1,0 +1,13 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-button label={labels.configureProducts} onclick={showConfig}></lightning-button>
+    <lightning-button label={labels.accept} onclick={processAcceptQuote}></lightning-button>
+    <template if:true={isModalOpen}>
+       <c-s-f_-configure-product-modal ongetmodalisclosed={handleModal}></c-s-f_-configure-product-modal>
+    </template>
+
+    <c-s-f_-qli-list record-id={recordId}></c-s-f_-qli-list>
+
+</template>

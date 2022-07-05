@@ -1,0 +1,23 @@
+.header{
+        margin-left: 30px;
+        width: 400px;
+        display: flex;
+        justify-content: space-between;
+    
+}
+
+.slds-modal__container {
+        max-width: 50rem !important;
+        width: 50% !important;
+}
+.modal-body{ 
+        height : 100vh !important; 
+        max-height: 100vh !important; 
+} 
+.slds-modal__footer{ 
+        display: inline !important; 
+}
+
+.heigh-controller{
+        height: 60%;
+}
