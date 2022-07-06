@@ -1,0 +1,11 @@
+<template>
+    <template if:true={recordId}>
+        <template for:each={quote} for:item="item">
+            <br key={item.Id}>
+            <div key={item.Id} class="slds-text-heading_large slds-text-align_center">{question}</div>
+            <br key={item.Id}>
+            <div key={item.Id} class="slds-text-heading_medium slds-text-align_center"> <a onclick={toEditPage}>{item.Name}</a></div>
+            <br key={item.Id}>
+        </template>
+    </template>
+</template>

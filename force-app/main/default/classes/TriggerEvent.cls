@@ -1,0 +1,1 @@
+public enum TriggerEvent {UpdateEvent, InsertEvent, DeleteEvent}

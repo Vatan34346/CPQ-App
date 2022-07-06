@@ -1,0 +1,11 @@
+<template >
+  <div class="container">
+    <div class="options">
+      <lightning-input type="checkbox" checked={optional}></lightning-input>
+      <span class="actions">{productName}</span>
+    </div> 
+    <lightning-formatted-number class="actions" value={basePrice} format-style="currency" currency-code={currency}>
+    </lightning-formatted-number>
+    <p class="actions"> <input onchange={handleQuantity} value={quontity}></p>
+  </div>
+</template>

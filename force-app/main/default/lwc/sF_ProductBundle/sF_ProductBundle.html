@@ -1,0 +1,22 @@
+<template>
+    <details>
+        <summary class="bundlesTitle">
+          {bundleName}   {price}
+        </summary>
+        <template  for:each={optionData} for:item="item">
+       
+                <c-s-f_-option 
+                class="options"
+                  key={item.id} 
+                  option-id={item.id} 
+                  optional={item.optional} 
+                  quontity={item.quontity}
+                  base-price={item.basePrice} 
+                  product-name={item.productName}
+                  onhandleqauntity={handelNewQuantity}></c-s-f_-option>
+
+        </template>
+
+    </details>
+
+</template>

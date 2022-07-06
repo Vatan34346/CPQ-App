@@ -1,0 +1,43 @@
+<template>
+    <!--genialur-->
+    <tr>
+        <td>
+            <lightning-icon onclick={handelExpand} icon-name="utility:down" size="xx-small"> </lightning-icon>
+        </td>
+        <template for:each={stringFields} for:item="stringFieldValue">
+            <td key={stringFieldValue.Id}>
+                {stringFieldValue.qliFieldValue}
+            </td>
+        </template>
+        <template for:each={currencyFields} for:item="currencyFieldValue">
+            <td key={currencyFieldValue.Id}>
+                <lightning-formatted-number value={currencyFieldValue.qliFieldValue} format-style="currency"
+                    currency-code={currencyIsoCode} currency-display-as="code">
+                </lightning-formatted-number>
+            </td>
+        </template>
+        <template for:each={otherFields} for:item="fieldValue">
+            <td key={fieldValue.Id}>
+                {fieldValue.qliFieldValue}
+            </td>
+        </template>
+        <template for:each={inputableFields} for:item="inputableFieldValue">
+            <td key={inputableFieldValue.Id}>
+                <input disabled type="number" value={inputableFieldValue.qliFieldValue}></input>
+            </td>
+        </template>
+        <td>
+            <lightning-icon  icon-name="utility:layers" size="xx-small"> </lightning-icon>
+        </td>
+    </tr>
+
+    <template if:true={expandOptions}>
+        <template for:each={options} for:item="option">
+            <c-s-f_-qli-bundle-option key={option.Id}  
+                label-info={labelInfo} qli-data={options} qli-id={option.Id} currency-iso-code={option.currencyIsoCode}>
+            </c-s-f_-qli-bundle-option>
+        </template>
+    </template>
+
+
+</template>

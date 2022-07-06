@@ -1,0 +1,32 @@
+<template>
+    <template if:true={recordId}>
+        <lightning-card>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            
+                        </th>
+                        <template for:each={labels} for:item="columnName">
+                            <th key={columnName.Id}>
+                                {columnName.colLabel}
+                            </th>
+                        </template>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={qliData} for:item="qli">
+                        <template if:true={qli.IsBundle__c}>
+                            <c-s-f_-qli key={qli.Id} is-bundle={qli.IsBundle__c} onhideoptions={expandHandler} 
+                            label-info={labels} qli-data={qliData} qli-id={qli.Id}
+                            currency-iso-code={qli.CurrencyIsoCode}></c-s-f_-qli>
+                        </template>
+                    </template>
+                </tbody>
+            </table>
+
+        </lightning-card>
+    </template>
+
+</template>

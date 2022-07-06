@@ -1,0 +1,17 @@
+details {
+    transition:height 3s ease-in;
+  }
+
+.bundlesTitle{
+  color: black; 
+  font-family: 'Lucida Sans', Arial, sans-serif; 
+  font-size: 16px; 
+  line-height: 26px; 
+  text-indent: 30px; 
+  margin: 0;
+}
+
+
+ .bundlesTitle:hover{
+  background-color: rebeccapurple;
+ }

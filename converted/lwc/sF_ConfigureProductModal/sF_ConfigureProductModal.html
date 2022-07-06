@@ -1,0 +1,35 @@
+<template>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section  role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+            class="slds-modal slds-fade-in-open slds-modal_small">
+            <div class="slds-modal__container">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                    <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Cancel and close</span>
+                </button>
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">search goes here</h1>
+                </div>
+                <div class="slds-modal__content heigh-controller slds-p-around_medium" id="modal-content-id-1">
+                    <div class="header">
+                        <p>Name</p>
+                        <p>Price</p>
+                        <p>Quontity</p>
+                    </div>
+                            <template for:each={modalData} for:item="item">
+                                <c-s-f_-product-bundle
+                                      key={item.Id} bundle-name={item.bundleName} 
+                                      option-data={item.options}></c-s-f_-product-bundle> 
+                            </template> 
+
+                </div>
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closeModal} aria-label="Cancel and close">Cancel</button>
+                    <button class="slds-button slds-button_brand">Save</button>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+</template>
