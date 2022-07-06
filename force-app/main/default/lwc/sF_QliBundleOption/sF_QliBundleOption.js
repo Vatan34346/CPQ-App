@@ -1,4 +1,5 @@
 import { LightningElement,api } from 'lwc';
+import updateQuantity from '@salesforce/apex/SF_QliController.updateQuantity';
 
 export default class SF_QliBundleOption extends LightningElement {
     @api qliId;
@@ -77,6 +78,10 @@ export default class SF_QliBundleOption extends LightningElement {
                 this.otherFields.push(qliObject);
             }
         })
+    }
+
+    onQuantityChangeHandler=(event)=>{
+        updateQuantity({qliId:this.qliId,quantity:event.target.value}).catch(err=>console.log(err));
     }
 
 }

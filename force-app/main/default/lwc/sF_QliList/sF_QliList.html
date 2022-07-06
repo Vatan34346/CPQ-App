@@ -5,13 +5,14 @@
                 <thead>
                     <tr>
                         <th>
-                            expand
+                            
                         </th>
                         <template for:each={labels} for:item="columnName">
                             <th key={columnName.Id}>
                                 {columnName.colLabel}
                             </th>
                         </template>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>

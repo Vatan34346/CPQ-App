@@ -22,7 +22,7 @@
         </template>
         <template for:each={inputableFields} for:item="inputableFieldValue">
             <td key={inputableFieldValue.Id}>
-                <input type="number" value={inputableFieldValue.qliFieldValue}></input>
+                <input onchange={onQuantityChangeHandler} type="number" value={inputableFieldValue.qliFieldValue}></input>
             </td>
         </template>
     </tr>

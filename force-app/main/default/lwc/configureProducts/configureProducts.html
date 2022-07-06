@@ -2,6 +2,7 @@
 <!-- sldsValidatorIgnore -->
 <!-- sldsValidatorIgnore -->
 <template>
+ <div class="tableLayout">
     <lightning-button label={labels.configureProducts} onclick={showConfig}></lightning-button>
     <lightning-button label={labels.accept} onclick={processAcceptQuote}></lightning-button>
     <template if:true={isModalOpen}>
@@ -9,5 +10,6 @@
     </template>
 
     <c-s-f_-qli-list record-id={recordId}></c-s-f_-qli-list>
+ </div>
 
 </template>

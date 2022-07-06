@@ -9,6 +9,8 @@ export default class SF_Qli extends LightningElement {
     @api currencyIsoCode;
     @api isOption;
     @api isBundle;
+    // hellow
+    
 
     options = []
     buttonIcon = '+';
@@ -20,17 +22,13 @@ export default class SF_Qli extends LightningElement {
     inputableFields = [];
     otherFields = [];
 
- 
-
-    
 
     connectedCallback() {
-
         this.processQliInfo();
         this.processQliOptions();
         this.processColumns(this.currentQliItem[0]);
-
     }
+
 
 
     processQliInfo = () => {
@@ -43,18 +41,37 @@ export default class SF_Qli extends LightningElement {
 
 
     processQliOptions = () => {
-        let bundleQli = {};
+        let bundlesQliList = [];
+        let options = [];
+
         this.qliData.forEach(item => {
             if (item.IsBundle__c === true) {
-                bundleQli = item;
+                bundlesQliList.push(JSON.parse(JSON.stringify(item)));
+            }
+            else {
+                options.push(JSON.parse(JSON.stringify(item)));
             }
         })
 
-        this.qliData.forEach(item => {
-            if (item.Quote_Line_Item__c === bundleQli.Id) {
-                this.options.push(JSON.parse(JSON.stringify(item)));
-            }
+        bundlesQliList.forEach(bundle => {
+            bundle['optionQlis'] = [];
+
+            options.forEach(option => {
+                if (option.Quote_Line_Item__c === bundle.Id) {
+                    bundle.optionQlis.push(option);
+                }
+            })
+
         })
+
+        let cunrrentBundle = {}
+        bundlesQliList.forEach(item => {
+            if (item.Id === this.qliId)
+                cunrrentBundle = item;
+        })
+
+        this.options = cunrrentBundle.optionQlis;
+
     }
 
     processColumns = (qliItem) => {
@@ -63,11 +80,14 @@ export default class SF_Qli extends LightningElement {
             mapQli.set(key, qliItem[key]);
         }
 
+        console.log(mapQli, ' + map');
         this.labelInfo.forEach(item => {
             const qliObject = {
                 type: item.type,
                 qliFieldValue: mapQli.get(item.fieldName)
             };
+
+            console.log(qliObject, ' + qli object')
 
             if (qliObject.type === 'CURRENCY') {
                 this.currencyFields.push(qliObject);
@@ -82,9 +102,13 @@ export default class SF_Qli extends LightningElement {
         })
     }
 
+    cloneQliWithOptions=()=>{
+
+    }
+
 
     handelExpand = () => {
         console.log(this.isBundle);
-            this.expandOptions = !this.expandOptions;
+        this.expandOptions = !this.expandOptions;
     }
 }

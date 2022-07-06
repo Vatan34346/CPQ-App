@@ -16,7 +16,7 @@ export default class SF_CreateQuote extends NavigationMixin(LightningElement) {
         console.log(this.recordId);
         if(this.recordId!==undefined){
             createQuote({ opportunityId: this.recordId }).then(quote => {
-                if(quote){
+                if(result){
                     this.quote = quote;
                     this.toEditPage(this.quote.Id); 
                 }                        

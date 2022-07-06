@@ -91,7 +91,7 @@ public class SF_QuoteTriggerTest {
         quote[0].Primary__c=true;
         Test.startTest();
         update quote;
-        Test.stopTest();  
+        Test.stopTest();
 
 
         Integer numberOfPrimaryQuotes=[SELECT COUNT() FROM SF_Quote__c WHERE Opportunity__c =:opportunity[0].Id AND Primary__c=true];

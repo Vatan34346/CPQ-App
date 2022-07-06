@@ -8,7 +8,7 @@ public  class SF_QliWrapper {
 
 
     public SF_QliWrapper(List<SF_Quote_Line_Item__c> qli, List<SF_TableColumns> columns){
-
+ 
         this.qliColumns=columns;
         this.qliData=qli;
     }

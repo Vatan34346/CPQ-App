@@ -1,7 +1,8 @@
 <template>
+    <!--genialur-->
     <tr>
         <td>
-            <button onclick={handelExpand}>{buttonIcon}</button>
+            <lightning-icon onclick={handelExpand} icon-name="utility:down" size="xx-small"> </lightning-icon>
         </td>
         <template for:each={stringFields} for:item="stringFieldValue">
             <td key={stringFieldValue.Id}>
@@ -22,9 +23,12 @@
         </template>
         <template for:each={inputableFields} for:item="inputableFieldValue">
             <td key={inputableFieldValue.Id}>
-                <input type="number" value={inputableFieldValue.qliFieldValue}></input>
+                <input disabled type="number" value={inputableFieldValue.qliFieldValue}></input>
             </td>
         </template>
+        <td>
+            <lightning-icon  icon-name="utility:layers" size="xx-small"> </lightning-icon>
+        </td>
     </tr>
 
     <template if:true={expandOptions}>

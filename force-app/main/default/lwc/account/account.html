@@ -1,0 +1,55 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+    <template if:true={showButtons}>
+        <lightning-button label={labels.shippingAddress} onclick={showShippingAddress}></lightning-button>
+        <lightning-button label={labels.billingAddress} onclick={showBillingAddress}></lightning-button>
+    </template>
+
+    <template if:true={showShipping}>
+        <lightning-input-address
+            object-api-name={ContactObjectApiName}
+            address-label={labels.shippingAddress}
+            city-label={labels.city}
+            country-label={labels.country}
+            street-label={labels.street}
+            province-label={labels.state}
+            postal-code-label={labels.postalCode}
+            city=""
+            country=""
+            street=""
+            province=""
+            postal-code=""
+            show-address-lookup="true"
+            fields={ContactFieldList}
+            record-id={recordId}
+            onchange={addressChange}
+        ></lightning-input-address>
+        <lightning-button label={labels.saveButton} variant="brand" onclick={saveShipping}></lightning-button>
+        <lightning-button label={labels.cancelButton} onclick={cancelShipping}></lightning-button>
+        <lightning-map map-markers={mapMarker} list-view={listView} zoom-level={zoomLevel}></lightning-map>
+    </template>
+    <template if:true={showBilling}>
+        <lightning-input-address
+            object-api-name={ContactObjectApiName}
+            address-label={labels.billingAddress}
+            city-label={labels.city}
+            country-label={labels.country}
+            street-label={labels.street}
+            province-label={labels.state}
+            postal-code-label={labels.postalCode}
+            city=""
+            country=""
+            street=""
+            province=""
+            postal-code=""
+            show-address-lookup="true"
+            fields={ContactFieldList} 
+            record-id={recordId}
+            onchange={addressChange}
+        ></lightning-input-address>
+        <lightning-button label={labels.saveButton} variant="brand" onclick={savelBilling}></lightning-button>
+        <lightning-button label={labels.cancelButton} onclick={cancelBilling}></lightning-button>
+        <lightning-map map-markers={mapMarker} list-view={listView} zoom-level={zoomLevel}></lightning-map>
+    </template>
+</template>

@@ -41,5 +41,3 @@ public with sharing class SF_QuoteController {
       return clonedQuote;
      }
 }
-
-

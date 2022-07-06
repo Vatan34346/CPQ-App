@@ -1,7 +1,6 @@
 import { LightningElement, api } from 'lwc';
-
-import getQuoteLineItemFieldNames from '@salesforce/apex/SF_QliController.getQuoteLineItemFieldNames';
 import getQli from '@salesforce/apex/SF_QliController.getQli';
+
 export default class SF_QliList extends LightningElement {
 
     @api recordId
